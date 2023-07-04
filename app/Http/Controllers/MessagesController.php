@@ -16,7 +16,7 @@ class MessagesController extends Controller
     public function index()
     {
         // メッセージ一覧を取得
-        $messages = Message::all();         // 追加
+        $messages = Message::orderBy('id', 'desc')->paginate(25);
 
         // メッセージ一覧ビューでそれを表示
         return view('messages.index', [     // 追加
